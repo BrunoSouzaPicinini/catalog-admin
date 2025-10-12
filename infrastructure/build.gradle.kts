@@ -5,10 +5,20 @@ plugins {
 group = "com.bspicinini.catalog.admin.infrastructure"
 version = "0.0.1-SNAPSHOT"
 
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(25)
+	}
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // Adicione dependências específicas de infrastructure aqui
+    implementation(project(":domain"))
+    implementation(project(":application"))
+    testImplementation(platform("org.junit:junit-bom:5.10.0"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
