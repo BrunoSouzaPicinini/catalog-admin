@@ -1,6 +1,5 @@
 package com.bspicinini.catalog.admin.domain;
 
-public class Category {
+public abstract class ValueObject {
 
-    public String id;
 }
