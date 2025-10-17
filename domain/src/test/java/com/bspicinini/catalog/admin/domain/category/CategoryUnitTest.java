@@ -244,8 +244,7 @@ public class CategoryUnitTest {
     @Test
     void givenAValidCategory_whenCallUpdateToInactive_thenReturnCategoryUpdated() {
         final String expectedName = "Movies and Series";
-        final var expectedDescription = "A Category description";
-        final var expectedIsActive = false;
+        final var expectedDescription = "A Category description";        
 
         final var category = Category.newCategory("Movie", null, true);
 
