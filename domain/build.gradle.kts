@@ -20,6 +20,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("org.mockito:mockito-junit-jupiter:5.20.0")
+    implementation("tools.jackson.core:jackson-databind:3.0.1")
 }
 
 tasks.test {
