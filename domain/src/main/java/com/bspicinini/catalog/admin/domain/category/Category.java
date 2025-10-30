@@ -2,19 +2,20 @@ package com.bspicinini.catalog.admin.domain.category;
 
 import com.bspicinini.catalog.admin.domain.AggregateRoot;
 import com.bspicinini.catalog.admin.domain.validation.ValidationHandler;
-import java.time.Instant;
+
+import java.time.LocalDateTime;
 
 public class Category extends AggregateRoot<CategoryID> {
 
     private String name;
     private String description;
     private boolean isActive;
-    private Instant createdAt;
-    private Instant updatedAt;
-    private Instant deletedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private LocalDateTime deletedAt;
 
     private Category(final CategoryID id, final String name, final String description,
-            final boolean isActive, final Instant createdAt, final Instant updatedAt) {
+            final boolean isActive, final LocalDateTime createdAt, final LocalDateTime updatedAt) {
         super(id);
         this.name = name;
         this.description = description;
@@ -27,7 +28,7 @@ public class Category extends AggregateRoot<CategoryID> {
     public static Category newCategory(final String name, final String description,
             final boolean isActive) {
         final var id = CategoryID.unique();
-        final var now = Instant.now();
+        final var now = LocalDateTime.now();
         return new Category(id, name, description, isActive, now, now);
     }
 
@@ -52,30 +53,30 @@ public class Category extends AggregateRoot<CategoryID> {
         return isActive;
     }
 
-    public Instant getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public Instant getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public Instant getDeletedAt() {
+    public LocalDateTime getDeletedAt() {
         return deletedAt;
     }
 
     public Category deactivate() {
         if (getDeletedAt() == null) {
-            this.deletedAt = Instant.now();
+            this.deletedAt = LocalDateTime.now();
         }
         this.isActive = false;
-        this.updatedAt = Instant.now();
+        this.updatedAt = LocalDateTime.now();
         return this;
     }
 
     public Category activate() {
         this.isActive = true;
-        this.updatedAt = Instant.now();
+        this.updatedAt = LocalDateTime.now();
         this.deletedAt = null;
         return this;
     }
@@ -83,7 +84,7 @@ public class Category extends AggregateRoot<CategoryID> {
     public Category update(final String name, final String description, final boolean isActive) {
         this.name = name;
         this.description = description;
-        this.updatedAt = Instant.now();
+        this.updatedAt = LocalDateTime.now();
 
         if (this.isActive != isActive) {
             if (isActive) {

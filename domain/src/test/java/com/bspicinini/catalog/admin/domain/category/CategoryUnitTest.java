@@ -16,8 +16,7 @@ public class CategoryUnitTest {
         final var expectedName = "Category 1";
         final var expectedDescription = "Category description";
         final var expectedIsActive = true;
-        final var actualCategory =
-                Category.newCategory(expectedName, expectedDescription, expectedIsActive);
+        final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
 
         Assertions.assertNotNull(actualCategory);
         Assertions.assertNotNull(actualCategory.getId());
@@ -37,8 +36,7 @@ public class CategoryUnitTest {
         final var expectedErrorCount = 1;
         final var expectedIsActive = true;
 
-        final var actualCategory =
-                Category.newCategory(expectedName, expectedDescription, expectedIsActive);
+        final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
 
         final var validationHandler = new ThrowsValidationHandler();
 
@@ -58,8 +56,7 @@ public class CategoryUnitTest {
         final var expectedErrorCount = 1;
         final var expectedIsActive = true;
 
-        final var actualCategory =
-                Category.newCategory(expectedName, expectedDescription, expectedIsActive);
+        final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
 
         final var validationHandler = new ThrowsValidationHandler();
 
@@ -80,8 +77,7 @@ public class CategoryUnitTest {
         final var expectedErrorCount = 1;
         final var expectedIsActive = true;
 
-        final var actualCategory =
-                Category.newCategory(expectedName, expectedDescription, expectedIsActive);
+        final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
 
         final var validationHandler = new ThrowsValidationHandler();
 
@@ -104,8 +100,7 @@ public class CategoryUnitTest {
         final var expectedDescription = "";
         final var expectedIsActive = true;
 
-        final var actualCategory =
-                Category.newCategory(expectedName, expectedDescription, expectedIsActive);
+        final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
 
         final var validationHandler = new ThrowsValidationHandler();
 
@@ -129,8 +124,7 @@ public class CategoryUnitTest {
         final var expectedDescription = "";
         final var expectedIsActive = false;
 
-        final var actualCategory =
-                Category.newCategory(expectedName, expectedDescription, expectedIsActive);
+        final var actualCategory = Category.newCategory(expectedName, expectedDescription, expectedIsActive);
 
         Assertions.assertDoesNotThrow(() -> {
             actualCategory.validate(new ThrowsValidationHandler());
@@ -224,8 +218,7 @@ public class CategoryUnitTest {
             category.validate(new ThrowsValidationHandler());
         });
 
-        final var actualCategory =
-                category.update(expectedName, expectedDescription, expectedIsActive);
+        final var actualCategory = category.update(expectedName, expectedDescription, expectedIsActive);
 
         Assertions.assertDoesNotThrow(() -> {
             actualCategory.validate(new ThrowsValidationHandler());
@@ -244,7 +237,7 @@ public class CategoryUnitTest {
     @Test
     void givenAValidCategory_whenCallUpdateToInactive_thenReturnCategoryUpdated() {
         final String expectedName = "Movies and Series";
-        final var expectedDescription = "A Category description";        
+        final var expectedDescription = "A Category description";
 
         final var category = Category.newCategory("Movie", null, true);
 
@@ -307,10 +300,10 @@ public class CategoryUnitTest {
         Assertions.assertNull(actualCategory.getDeletedAt());
     }
 
-     @Test
+    @Test
     void givenAValidCategory_whenCallUpdateWithInvalidParams_thenReturnCategoryUpdated() {
         final String expectedName = null;
-        final var expectedDescription = "A Category description";        
+        final var expectedDescription = "A Category description";
 
         final var category = Category.newCategory("Movie", null, true);
 
