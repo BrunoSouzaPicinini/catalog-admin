@@ -1,7 +1,11 @@
+// Commented out: Spring Boot will be used when the infrastructure layer is implemented
+// plugins {
+//     id("org.springframework.boot") version "3.5.6"
+//     id("io.spring.dependency-management") version "1.1.7"
+// }
+
 plugins {
 	java
-	id("org.springframework.boot") version "3.5.6"
-	id("io.spring.dependency-management") version "1.1.7"
 }
 
 group = "com.bspicinini.catalog.admin"

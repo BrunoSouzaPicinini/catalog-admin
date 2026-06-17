@@ -5,7 +5,7 @@ import com.bspicinini.catalog.admin.domain.validation.ValidationHandler;
 
 import java.time.LocalDateTime;
 
-public class    Category extends AggregateRoot<CategoryID> implements Cloneable {
+public class Category extends AggregateRoot<CategoryID> implements Cloneable {
 
     private String name;
     private String description;

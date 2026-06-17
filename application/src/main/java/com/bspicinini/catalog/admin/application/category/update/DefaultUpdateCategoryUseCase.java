@@ -11,8 +11,12 @@ import io.vavr.control.Either;
 
 import java.util.Objects;
 import java.util.function.Supplier;
+import java.util.logging.Logger;
 
 public class DefaultUpdateCategoryUseCase extends UpdateCategoryUseCase {
+
+        Logger logger = Logger.getLogger(DefaultUpdateCategoryUseCase.class.getName());
+        
 
         private final CategoryGateway categoryGateway;
 
@@ -27,6 +31,8 @@ public class DefaultUpdateCategoryUseCase extends UpdateCategoryUseCase {
                 final String aName = aCommand.name();
                 final String aDescription = aCommand.description();
                 final boolean isActive = aCommand.isActive();
+
+                logger.info("Updating category with ID: " + anId.getValue());
 
                 final var aCategory = this.categoryGateway.findById(anId)
                                 .orElseThrow(notFound(anId));
